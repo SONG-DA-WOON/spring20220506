@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.controller.ex03.Customer;
+import org.zerock.controller.ex03.Employee;
 
 @Controller
 @RequestMapping("ex10")
@@ -51,5 +52,22 @@ public class Ex10Controller {
 	@RequestMapping("sub06")
 	public void method06(Model model) {
 		System.out.println(model.asMap().get("customer")); 
+	}
+	
+	@RequestMapping("sub07")
+	public String method07(RedirectAttributes rttr) {
+		Employee emp = new Employee();
+		emp.setEmail("33@naver.com");
+		emp.setName("dkdks");
+		emp.setSalary(123123);
+		
+		rttr.addFlashAttribute("employee", emp);
+		
+		return "redirect:/ex10/sub08";
+	}
+	
+	@RequestMapping("sub08")
+	public void method08(Model model) {
+		System.out.println(model.asMap().get("employee"));
 	}
 }

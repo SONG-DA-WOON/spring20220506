@@ -55,6 +55,16 @@ public class Ex09Controller {
 	public String method07(@ModelAttribute("employee") Employee emp) {
 		return "/ex09/sub07";
 	}
+	
+	@RequestMapping("sub08")
+	public String method08(@ModelAttribute("customer") Customer cus) {
+		return "/ex09/sub08";
+	}
+	
+	@RequestMapping("sub09")
+	public String method09(Customer cus) {
+		return "/ex09/sub09";
+	}
 	// ?name=sunja&salary=50000&email=sunja@gmail.com
 	
 	// method07 작성
