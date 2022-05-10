@@ -50,6 +50,6 @@ public class Ex10Controller {
 	
 	@RequestMapping("sub06")
 	public void method06(Model model) {
-		System.out.println(model.asMap().get("customer"));
+		System.out.println(model.asMap().get("customer")); 
 	}
 }
