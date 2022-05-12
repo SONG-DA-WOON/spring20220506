@@ -22,18 +22,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<c:url value="/ex14/sub06" var="employeeUrl"></c:url>
+	<h1>글 목록</h1>
 
-	<h1>직원등록</h1>
-	<form action="${employeeUrl }" method="post">
-		FirstName : <input type="text" name="firstName" /> <br />
-		Last Name : <input type="text" name="lastName" /> <br />
-		Birth Date : <input type="text" name="birthDate" value="1950-02-02"/> <br /> 
-		Photo : <input type="text" name="photo" values="photo9999" /> <br />
-		Notes : <textarea name="notes" id="" cols="30" rows="10" >US president...</textarea> <br />
-		
-		<button>등록</button>
-	</form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>inserted</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${boardList }" var="board">
+				<tr>
+					<td>${board.id }</td>
+					<td>
+
+						<c:url value="/ex15/board${board.id }" var="link"></c:url>
+						<a href="${link }">
+						 ${board.title } </a>
+					</td>
+					<td>${board.inserted }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>
